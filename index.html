@@ -61,7 +61,7 @@
 
         .entry-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 12px;
             margin-bottom: 24px;
         }
@@ -467,6 +467,10 @@
                     <div class="entry-btn-title">I want to lead</div>
                     <div class="entry-btn-desc">How do I help my team?</div>
                 </button>
+                <button class="entry-btn" data-goal="fun">
+                    <div class="entry-btn-title">Do something fun</div>
+                    <div class="entry-btn-desc">Creative & experimental AI</div>
+                </button>
             </div>
 
             <div class="divider">
@@ -581,6 +585,41 @@
                         <div>
                             <div class="question-text">How do I lead AI transformation strategically?</div>
                             <div class="question-meta">Strategic Leadership · 3 resources</div>
+                        </div>
+                        <span class="question-arrow">→</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Panel: Do Something Fun -->
+            <div class="panel" id="panel-fun">
+                <h2 class="panel-title">What do you want to create?</h2>
+                <div class="question-list">
+                    <button class="question-item" data-question="images">
+                        <div>
+                            <div class="question-text">Generate images or art</div>
+                            <div class="question-meta">AI image generators · 4 resources</div>
+                        </div>
+                        <span class="question-arrow">→</span>
+                    </button>
+                    <button class="question-item" data-question="video">
+                        <div>
+                            <div class="question-text">Create or edit video</div>
+                            <div class="question-meta">AI video tools · 3 resources</div>
+                        </div>
+                        <span class="question-arrow">→</span>
+                    </button>
+                    <button class="question-item" data-question="audio">
+                        <div>
+                            <div class="question-text">Work with audio or voice</div>
+                            <div class="question-meta">Transcription, voice synthesis · 3 resources</div>
+                        </div>
+                        <span class="question-arrow">→</span>
+                    </button>
+                    <button class="question-item" data-question="music">
+                        <div>
+                            <div class="question-text">Make music or sounds</div>
+                            <div class="question-meta">AI music generation · 3 resources</div>
                         </div>
                         <span class="question-arrow">→</span>
                     </button>
@@ -1078,6 +1117,179 @@
                         <div class="resource-desc">Governance frameworks and ethical considerations for AI deployment.</div>
                         <div class="resource-meta">~3 hours · Free</div>
                     </a>
+                </div>
+            </div>
+
+            <!-- Resource: Generate Images -->
+            <div class="resource-panel" id="resources-images">
+                <div class="resource-header">
+                    <h2 class="panel-title">AI Image Generation</h2>
+                    <button class="back-btn" data-back="fun">← Back</button>
+                </div>
+                <div class="resource-list">
+                    <a href="https://www.midjourney.com/" class="resource-card" target="_blank">
+                        <div class="resource-top">
+                            <span class="resource-name">Midjourney</span>
+                            <div class="resource-badges"><span class="badge">Try it</span></div>
+                        </div>
+                        <div class="resource-source">Midjourney</div>
+                        <div class="resource-desc">Create stunning artistic images from text prompts. Industry-leading quality.</div>
+                        <div class="resource-meta">Subscription required</div>
+                    </a>
+                    <a href="https://www.adobe.com/products/firefly.html" class="resource-card" target="_blank">
+                        <div class="resource-top">
+                            <span class="resource-name">Adobe Firefly</span>
+                            <div class="resource-badges"><span class="badge">Try it</span></div>
+                        </div>
+                        <div class="resource-source">Adobe</div>
+                        <div class="resource-desc">Generate images, add/remove objects, expand canvases. Safe for commercial use.</div>
+                        <div class="resource-meta">Free tier available</div>
+                    </a>
+                    <a href="https://openai.com/dall-e-3" class="resource-card" target="_blank">
+                        <div class="resource-top">
+                            <span class="resource-name">DALL-E 3</span>
+                            <div class="resource-badges"><span class="badge">Try it</span></div>
+                        </div>
+                        <div class="resource-source">OpenAI (via ChatGPT)</div>
+                        <div class="resource-desc">Generate detailed images from natural language descriptions.</div>
+                        <div class="resource-meta">Included with ChatGPT Plus</div>
+                    </a>
+                    <a href="https://www.canva.com/ai-image-generator/" class="resource-card" target="_blank">
+                        <div class="resource-top">
+                            <span class="resource-name">Canva Text to Image</span>
+                            <div class="resource-badges"><span class="badge">Try it</span></div>
+                        </div>
+                        <div class="resource-source">Canva</div>
+                        <div class="resource-desc">Generate images directly in your design workflow. Great for presentations.</div>
+                        <div class="resource-meta">Free tier available</div>
+                    </a>
+                </div>
+                <div class="try-box">
+                    <div class="try-box-label">Try it now</div>
+                    <div class="try-box-prompt">A professional photo of a modern office with natural light, plants, and collaborative workspace, warm tones</div>
+                </div>
+            </div>
+
+            <!-- Resource: Video Creation -->
+            <div class="resource-panel" id="resources-video">
+                <div class="resource-header">
+                    <h2 class="panel-title">AI Video Tools</h2>
+                    <button class="back-btn" data-back="fun">← Back</button>
+                </div>
+                <div class="resource-list">
+                    <a href="https://runwayml.com/" class="resource-card" target="_blank">
+                        <div class="resource-top">
+                            <span class="resource-name">Runway</span>
+                            <div class="resource-badges"><span class="badge">Try it</span></div>
+                        </div>
+                        <div class="resource-source">Runway</div>
+                        <div class="resource-desc">Generate video from text or images. Remove backgrounds, extend clips, and more.</div>
+                        <div class="resource-meta">Free tier available</div>
+                    </a>
+                    <a href="https://www.descript.com/" class="resource-card" target="_blank">
+                        <div class="resource-top">
+                            <span class="resource-name">Descript</span>
+                            <div class="resource-badges"><span class="badge">Try it</span></div>
+                        </div>
+                        <div class="resource-source">Descript</div>
+                        <div class="resource-desc">Edit video by editing text. Remove filler words, overdub audio, transcribe automatically.</div>
+                        <div class="resource-meta">Free tier available</div>
+                    </a>
+                    <a href="https://www.capcut.com/" class="resource-card" target="_blank">
+                        <div class="resource-top">
+                            <span class="resource-name">CapCut</span>
+                            <div class="resource-badges"><span class="badge">Try it</span></div>
+                        </div>
+                        <div class="resource-source">ByteDance</div>
+                        <div class="resource-desc">Free video editor with AI features: auto-captions, background removal, effects.</div>
+                        <div class="resource-meta">Free</div>
+                    </a>
+                </div>
+                <div class="try-box">
+                    <div class="try-box-label">Try it now</div>
+                    <div class="try-box-prompt">Upload a video and ask: "Add captions and remove all um's and uh's"</div>
+                </div>
+            </div>
+
+            <!-- Resource: Audio & Voice -->
+            <div class="resource-panel" id="resources-audio">
+                <div class="resource-header">
+                    <h2 class="panel-title">Audio & Voice AI</h2>
+                    <button class="back-btn" data-back="fun">← Back</button>
+                </div>
+                <div class="resource-list">
+                    <a href="https://elevenlabs.io/" class="resource-card" target="_blank">
+                        <div class="resource-top">
+                            <span class="resource-name">ElevenLabs</span>
+                            <div class="resource-badges"><span class="badge">Try it</span></div>
+                        </div>
+                        <div class="resource-source">ElevenLabs</div>
+                        <div class="resource-desc">Generate realistic voiceovers and clone voices. Great for narration and podcasts.</div>
+                        <div class="resource-meta">Free tier available</div>
+                    </a>
+                    <a href="https://openai.com/research/whisper" class="resource-card" target="_blank">
+                        <div class="resource-top">
+                            <span class="resource-name">OpenAI Whisper</span>
+                            <div class="resource-badges"><span class="badge">Try it</span></div>
+                        </div>
+                        <div class="resource-source">OpenAI</div>
+                        <div class="resource-desc">Free, open-source speech-to-text. Transcribe audio in 99 languages.</div>
+                        <div class="resource-meta">Free · Open source</div>
+                    </a>
+                    <a href="https://www.descript.com/" class="resource-card" target="_blank">
+                        <div class="resource-top">
+                            <span class="resource-name">Descript Overdub</span>
+                            <div class="resource-badges"><span class="badge">Try it</span></div>
+                        </div>
+                        <div class="resource-source">Descript</div>
+                        <div class="resource-desc">Clone your voice and generate speech from text. Fix mistakes without re-recording.</div>
+                        <div class="resource-meta">Free tier available</div>
+                    </a>
+                </div>
+                <div class="try-box">
+                    <div class="try-box-label">Try it now</div>
+                    <div class="try-box-prompt">Upload a meeting recording to Whisper and get a full transcript in minutes.</div>
+                </div>
+            </div>
+
+            <!-- Resource: Music Generation -->
+            <div class="resource-panel" id="resources-music">
+                <div class="resource-header">
+                    <h2 class="panel-title">AI Music Generation</h2>
+                    <button class="back-btn" data-back="fun">← Back</button>
+                </div>
+                <div class="resource-list">
+                    <a href="https://suno.com/" class="resource-card" target="_blank">
+                        <div class="resource-top">
+                            <span class="resource-name">Suno</span>
+                            <div class="resource-badges"><span class="badge">Try it</span></div>
+                        </div>
+                        <div class="resource-source">Suno</div>
+                        <div class="resource-desc">Generate full songs with vocals from text descriptions. Surprisingly good quality.</div>
+                        <div class="resource-meta">Free tier available</div>
+                    </a>
+                    <a href="https://www.udio.com/" class="resource-card" target="_blank">
+                        <div class="resource-top">
+                            <span class="resource-name">Udio</span>
+                            <div class="resource-badges"><span class="badge">Try it</span></div>
+                        </div>
+                        <div class="resource-source">Udio</div>
+                        <div class="resource-desc">Create realistic music tracks from prompts. Great for background music and jingles.</div>
+                        <div class="resource-meta">Free tier available</div>
+                    </a>
+                    <a href="https://soundraw.io/" class="resource-card" target="_blank">
+                        <div class="resource-top">
+                            <span class="resource-name">Soundraw</span>
+                            <div class="resource-badges"><span class="badge">Try it</span></div>
+                        </div>
+                        <div class="resource-source">Soundraw</div>
+                        <div class="resource-desc">Generate royalty-free background music for videos. Customize mood, tempo, length.</div>
+                        <div class="resource-meta">Subscription for downloads</div>
+                    </a>
+                </div>
+                <div class="try-box">
+                    <div class="try-box-label">Try it now</div>
+                    <div class="try-box-prompt">Create an upbeat corporate background track, 2 minutes, no vocals, inspiring and modern</div>
                 </div>
             </div>
 
