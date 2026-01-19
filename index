@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Learning Resources</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #fafafa;
+            color: #171717;
+            line-height: 1.6;
+            padding: 24px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+
+        .header {
+            padding: 24px 32px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            font-size: 14px;
+            color: #525252;
+        }
+
+        .content {
+            padding: 32px;
+        }
+
+        /* Entry Points */
+        .section-label {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #737373;
+            margin-bottom: 12px;
+        }
+
+        .entry-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .entry-btn {
+            padding: 16px;
+            background: #fafafa;
+            border: 1px solid #d4d4d4;
+            border-radius: 6px;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: inherit;
+        }
+
+        .entry-btn:hover {
+            background: #f5f5f5;
+            border-color: #a3a3a3;
+        }
+
+        .entry-btn:focus {
+            outline: 2px solid #171717;
+            outline-offset: 2px;
+        }
+
+        .entry-btn.active {
+            background: #f5fafa;
+            border-color: #bfe5e7;
+            border-width: 2px;
+        }
+
+        .entry-btn-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #171717;
+            margin-bottom: 4px;
+        }
+
+        .entry-btn-desc {
+            font-size: 13px;
+            color: #737373;
+        }
+
+        /* Divider */
+        .divider {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin: 24px 0;
+        }
+
+        .divider-line {
+            flex: 1;
+            height: 1px;
+            background: #e5e5e5;
+        }
+
+        .divider-text {
+            font-size: 12px;
+            color: #a3a3a3;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Format Pills */
+        .format-row {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .format-pill {
+            padding: 8px 16px;
+            background: white;
+            border: 1px solid #d4d4d4;
+            border-radius: 100px;
+            font-family: inherit;
+            font-size: 13px;
+            color: #525252;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .format-pill:hover {
+            background: #f5f5f5;
+            border-color: #a3a3a3;
+        }
+
+        .format-pill:focus {
+            outline: 2px solid #171717;
+            outline-offset: 2px;
+        }
+
+        .format-pill.active {
+            background: #171717;
+            border-color: #171717;
+            color: white;
+        }
+
+        /* Panels */
+        .panel {
+            display: none;
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid #e5e5e5;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .panel.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .panel-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        /* Question List */
+        .question-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .question-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 16px;
+            background: #fafafa;
+            border: 1px solid #e5e5e5;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: inherit;
+            text-align: left;
+            width: 100%;
+        }
+
+        .question-item:hover {
+            background: #f5f5f5;
+            border-color: #d4d4d4;
+        }
+
+        .question-item:focus {
+            outline: 2px solid #171717;
+            outline-offset: 2px;
+        }
+
+        .question-text {
+            font-size: 14px;
+            color: #171717;
+        }
+
+        .question-meta {
+            font-size: 12px;
+            color: #a3a3a3;
+        }
+
+        .question-arrow {
+            color: #a3a3a3;
+            transition: transform 0.2s ease;
+        }
+
+        .question-item:hover .question-arrow {
+            transform: translateX(4px);
+            color: #525252;
+        }
+
+        /* Resource Panel */
+        .resource-panel {
+            display: none;
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid #e5e5e5;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .resource-panel.active {
+            display: block;
+        }
+
+        .resource-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+        }
+
+        .back-btn {
+            padding: 6px 12px;
+            background: white;
+            border: 1px solid #d4d4d4;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 12px;
+            color: #525252;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .back-btn:hover {
+            background: #f5f5f5;
+            border-color: #a3a3a3;
+        }
+
+        /* Resource Cards */
+        .resource-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .resource-card {
+            display: block;
+            padding: 16px;
+            background: #fafafa;
+            border: 1px solid #e5e5e5;
+            border-radius: 6px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.2s ease;
+        }
+
+        .resource-card:hover {
+            background: #f5f5f5;
+            border-color: #d4d4d4;
+        }
+
+        .resource-card:focus {
+            outline: 2px solid #171717;
+            outline-offset: 2px;
+        }
+
+        .resource-card.ivey {
+            border-left: 3px solid #00563F;
+            background: #f8faf9;
+        }
+
+        .resource-top {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+
+        .resource-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: #171717;
+        }
+
+        .resource-badges {
+            display: flex;
+            gap: 4px;
+        }
+
+        .badge {
+            padding: 2px 8px;
+            background: #e5e5e5;
+            border-radius: 4px;
+            font-size: 11px;
+            color: #525252;
+        }
+
+        .resource-card.ivey .badge {
+            background: #d4e8e0;
+            color: #00563F;
+        }
+
+        .resource-source {
+            font-size: 12px;
+            color: #737373;
+            margin-bottom: 6px;
+        }
+
+        .resource-desc {
+            font-size: 13px;
+            color: #525252;
+            margin-bottom: 8px;
+        }
+
+        .resource-meta {
+            font-size: 12px;
+            color: #a3a3a3;
+        }
+
+        /* Try It Box */
+        .try-box {
+            margin-top: 16px;
+            padding: 16px;
+            background: #f5fafa;
+            border: 1px solid #bfe5e7;
+            border-radius: 6px;
+        }
+
+        .try-box-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: #525252;
+            margin-bottom: 8px;
+        }
+
+        .try-box-prompt {
+            font-family: 'SF Mono', Monaco, Consolas, monospace;
+            font-size: 13px;
+            color: #171717;
+            background: white;
+            padding: 12px;
+            border-radius: 4px;
+            border: 1px solid #e5e5e5;
+        }
+
+        /* Format Resources */
+        .format-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .format-resource {
+            display: block;
+            padding: 16px;
+            background: #fafafa;
+            border: 1px solid #e5e5e5;
+            border-radius: 6px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.2s ease;
+        }
+
+        .format-resource:hover {
+            background: #f5f5f5;
+            border-color: #d4d4d4;
+        }
+
+        .format-resource.featured {
+            background: #f5fafa;
+            border-color: #bfe5e7;
+        }
+
+        .featured-label {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #0d9488;
+            margin-bottom: 4px;
+        }
+
+        .format-resource-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: #171717;
+            margin-bottom: 4px;
+        }
+
+        .format-resource-desc {
+            font-size: 13px;
+            color: #525252;
+            margin-bottom: 6px;
+        }
+
+        .format-resource-meta {
+            font-size: 12px;
+            color: #a3a3a3;
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            .entry-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>AI Learning Resources</h1>
+            <p>Find the right resources for where you are and how you learn best.</p>
+        </div>
+
+        <div class="content">
+            <p class="section-label">What would you like to do?</p>
+            <div class="entry-grid">
+                <button class="entry-btn" data-goal="new">
+                    <div class="entry-btn-title">I'm new to AI</div>
+                    <div class="entry-btn-desc">Where do I start?</div>
+                </button>
+                <button class="entry-btn" data-goal="task">
+                    <div class="entry-btn-title">I have a task</div>
+                    <div class="entry-btn-desc">I need to do X with AI</div>
+                </button>
+                <button class="entry-btn" data-goal="lead">
+                    <div class="entry-btn-title">I want to lead</div>
+                    <div class="entry-btn-desc">How do I help my team?</div>
+                </button>
+            </div>
+
+            <div class="divider">
+                <span class="divider-line"></span>
+                <span class="divider-text">or by format</span>
+                <span class="divider-line"></span>
+            </div>
+
+            <div class="format-row">
+                <button class="format-pill" data-format="listen">Listen</button>
+                <button class="format-pill" data-format="watch">Watch</button>
+                <button class="format-pill" data-format="read">Read</button>
+                <button class="format-pill" data-format="try">Try it</button>
+            </div>
+
+            <!-- Panel: New to AI -->
+            <div class="panel" id="panel-new">
+                <h2 class="panel-title">Where are you in your AI journey?</h2>
+                <div class="question-list">
+                    <button class="question-item" data-question="getting-started">
+                        <div>
+                            <div class="question-text">I haven't really used AI tools yet</div>
+                            <div class="question-meta">Getting Started · 2 resources</div>
+                        </div>
+                        <span class="question-arrow">→</span>
+                    </button>
+                    <button class="question-item" data-question="building-skills">
+                        <div>
+                            <div class="question-text">I've tried ChatGPT but want to get better</div>
+                            <div class="question-meta">Building Skills · 2 resources</div>
+                        </div>
+                        <span class="question-arrow">→</span>
+                    </button>
+                    <button class="question-item" data-question="going-deeper">
+                        <div>
+                            <div class="question-text">I use AI regularly and want advanced techniques</div>
+                            <div class="question-meta">Going Deeper · 2 resources</div>
+                        </div>
+                        <span class="question-arrow">→</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Panel: I Have a Task -->
+            <div class="panel" id="panel-task">
+                <h2 class="panel-title">What do you need to do?</h2>
+                <div class="question-list">
+                    <button class="question-item" data-question="writing">
+                        <div>
+                            <div class="question-text">Write or edit content</div>
+                            <div class="question-meta">Emails, reports, summaries · 2 resources</div>
+                        </div>
+                        <span class="question-arrow">→</span>
+                    </button>
+                    <button class="question-item" data-question="data">
+                        <div>
+                            <div class="question-text">Analyze data</div>
+                            <div class="question-meta">Trends, insights, spreadsheets · 2 resources</div>
+                        </div>
+                        <span class="question-arrow">→</span>
+                    </button>
+                    <button class="question-item" data-question="research">
+                        <div>
+                            <div class="question-text">Research a topic quickly</div>
+                            <div class="question-meta">Background, summaries · 2 resources</div>
+                        </div>
+                        <span class="question-arrow">→</span>
+                    </button>
+                    <button class="question-item" data-question="meetings">
+                        <div>
+                            <div class="question-text">Summarize documents or meetings</div>
+                            <div class="question-meta">Notes, action items · 2 resources</div>
+                        </div>
+                        <span class="question-arrow">→</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Panel: I Want to Lead -->
+            <div class="panel" id="panel-lead">
+                <h2 class="panel-title">What's your leadership challenge?</h2>
+                <div class="question-list">
+                    <button class="question-item" data-question="team-enablement">
+                        <div>
+                            <div class="question-text">How do I help my team get started with AI?</div>
+                            <div class="question-meta">Team Enablement · 2 resources</div>
+                        </div>
+                        <span class="question-arrow">→</span>
+                    </button>
+                    <button class="question-item" data-question="use-cases">
+                        <div>
+                            <div class="question-text">How do I identify where AI can help my unit?</div>
+                            <div class="question-meta">Use Case Discovery · 2 resources</div>
+                        </div>
+                        <span class="question-arrow">→</span>
+                    </button>
+                    <button class="question-item" data-question="strategy">
+                        <div>
+                            <div class="question-text">How do I lead AI transformation strategically?</div>
+                            <div class="question-meta">Strategic Leadership · 2 resources</div>
+                        </div>
+                        <span class="question-arrow">→</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Resource: Getting Started -->
+            <div class="resource-panel" id="resources-getting-started">
+                <div class="resource-header">
+                    <h2 class="panel-title">Getting Started</h2>
+                    <button class="back-btn" data-back="new">← Back</button>
+                </div>
+                <div class="resource-list">
+                    <a href="https://www.elementsofai.com" class="resource-card" target="_blank">
+                        <div class="resource-top">
+                            <span class="resource-name">Elements of AI</span>
+                            <div class="resource-badges"><span class="badge">Read</span></div>
+                        </div>
+                        <div class="resource-source">University of Helsinki</div>
+                        <div class="resource-desc">Build basic AI literacy and understand what AI is (and isn't).</div>
+                        <div class="resource-meta">~4 hours · Free · No login required</div>
+                    </a>
+                    <a href="https://www.uwo.ca/hr/learning/staff/operational.html" class="resource-card ivey" target="_blank">
+                        <div class="resource-top">
+                            <span class="resource-name">Using AI for Operational Effectiveness</span>
+                            <div class="resource-badges"><span class="badge">Workshop</span></div>
+                        </div>
+                        <div class="resource-source">Western AI Training</div>
+                        <div class="resource-desc">Hands-on practice with AI tools for administrative tasks.</div>
+                        <div class="resource-meta">2 hours · In-person or virtual</div>
+                    </a>
+                </div>
+                <div class="try-box">
+                    <div class="try-box-label">Try it now</div>
+                    <div class="try-box-prompt">I work in [your area]. What are 3 simple ways AI could help me?</div>
+                </div>
+            </div>
+
+            <!-- Resource: Writing -->
+            <div class="resource-panel" id="resources-writing">
+                <div class="resource-header">
+                    <h2 class="panel-title">Writing & Editing</h2>
+                    <button class="back-btn" data-back="task">← Back</button>
+                </div>
+                <div class="resource-list">
+                    <a href="https://www.deeplearning.ai/short-courses/chatgpt-prompt-engineering-for-developers/" class="resource-card" target="_blank">
+                        <div class="resource-top">
+                            <span class="resource-name">ChatGPT Prompt Engineering</span>
+                            <div class="resource-badges"><span class="badge">Watch</span></div>
+                        </div>
+                        <div class="resource-source">DeepLearning.AI</div>
+                        <div class="resource-desc">Learn structured prompting techniques for better outputs.</div>
+                        <div class="resource-meta">1 hour · Free</div>
+                    </a>
+                    <a href="https://learnprompting.org" class="resource-card" target="_blank">
+                        <div class="resource-top">
+                            <span class="resource-name">Learn Prompting</span>
+                            <div class="resource-badges"><span class="badge">Read</span><span class="badge">Try it</span></div>
+                        </div>
+                        <div class="resource-source">Open Source</div>
+                        <div class="resource-desc">Free, interactive guide to practical prompting skills.</div>
+                        <div class="resource-meta">Self-paced · Free</div>
+                    </a>
+                </div>
+                <div class="try-box">
+                    <div class="try-box-label">Try it now</div>
+                    <div class="try-box-prompt">Help me draft a professional email about [topic]. Keep it under 150 words.</div>
+                </div>
+            </div>
+
+            <!-- Resource: Team Enablement -->
+            <div class="resource-panel" id="resources-team-enablement">
+                <div class="resource-header">
+                    <h2 class="panel-title">Enabling Your Team</h2>
+                    <button class="back-btn" data-back="lead">← Back</button>
+                </div>
+                <div class="resource-list">
+                    <a href="https://www.uwo.ca/hr/leader/leadership/offerings.html" class="resource-card" target="_blank">
+                        <div class="resource-top">
+                            <span class="resource-name">Leading with AI: Unlocking Your Team's Potential</span>
+                            <div class="resource-badges"><span class="badge">Workshop</span></div>
+                        </div>
+                        <div class="resource-source">Western AI Training</div>
+                        <div class="resource-desc">Tools and frameworks to navigate AI adoption with your team.</div>
+                        <div class="resource-meta">2 hours · In-person</div>
+                    </a>
+                    <a href="#" class="resource-card ivey" target="_blank">
+                        <div class="resource-top">
+                            <span class="resource-name">Driving AI Adoption and Innovation</span>
+                            <div class="resource-badges"><span class="badge">Workshop</span></div>
+                        </div>
+                        <div class="resource-source">Ivey Executive Education · Yasser Rahrovani</div>
+                        <div class="resource-desc">Help leaders create conditions for responsible AI exploration.</div>
+                        <div class="resource-meta">Ivey Staff</div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Format: Listen -->
+            <div class="panel" id="format-listen">
+                <h2 class="panel-title">Learn by Listening</h2>
+                <p class="resource-desc" style="margin-bottom: 16px;">Podcasts for commutes, walks, or background learning.</p>
+                <div class="format-list">
+                    <a href="https://www.theaidailybrief.com/" class="format-resource featured" target="_blank">
+                        <div class="featured-label">Start here</div>
+                        <div class="format-resource-name">The AI Daily Brief</div>
+                        <div class="format-resource-desc">Quick, digestible updates on what's new in AI.</div>
+                        <div class="format-resource-meta">5–15 min daily</div>
+                    </a>
+                    <a href="https://www.youtube.com/@howiaipodcast" class="format-resource" target="_blank">
+                        <div class="format-resource-name">How I AI</div>
+                        <div class="format-resource-desc">Real workflows from practitioners.</div>
+                        <div class="format-resource-meta">30–45 min weekly</div>
+                    </a>
+                    <a href="#" class="format-resource" target="_blank">
+                        <div class="format-resource-name">Practical AI</div>
+                        <div class="format-resource-desc">Deeper dives on business applications.</div>
+                        <div class="format-resource-meta">30–45 min weekly</div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Format: Watch -->
+            <div class="panel" id="format-watch">
+                <h2 class="panel-title">Learn by Watching</h2>
+                <p class="resource-desc" style="margin-bottom: 16px;">Videos and tutorials to see workflows in action.</p>
+                <div class="format-list">
+                    <a href="https://www.youtube.com/playlist?list=PLlrxD0HtieHjL-Gvjh0kFqcxFxQMzHsmP" class="format-resource featured" target="_blank">
+                        <div class="featured-label">Start here</div>
+                        <div class="format-resource-name">Generative AI for Beginners</div>
+                        <div class="format-resource-desc">Microsoft's 18-lesson series. Skip to relevant episodes.</div>
+                        <div class="format-resource-meta">10–20 min per lesson</div>
+                    </a>
+                    <a href="https://www.youtube.com/@TwoMinutePapers" class="format-resource" target="_blank">
+                        <div class="format-resource-name">Two Minute Papers</div>
+                        <div class="format-resource-desc">Quick explainers on AI research breakthroughs.</div>
+                        <div class="format-resource-meta">5 min each</div>
+                    </a>
+                    <a href="https://www.deeplearning.ai/short-courses/" class="format-resource" target="_blank">
+                        <div class="format-resource-name">DeepLearning.AI Short Courses</div>
+                        <div class="format-resource-desc">Structured video courses on specific skills.</div>
+                        <div class="format-resource-meta">1–2 hours each</div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Format: Read -->
+            <div class="panel" id="format-read">
+                <h2 class="panel-title">Learn by Reading</h2>
+                <p class="resource-desc" style="margin-bottom: 16px;">Articles, guides, and newsletters at your own pace.</p>
+                <div class="format-list">
+                    <a href="https://www.oneusefulthing.org/" class="format-resource featured" target="_blank">
+                        <div class="featured-label">Start here</div>
+                        <div class="format-resource-name">One Useful Thing</div>
+                        <div class="format-resource-desc">Ethan Mollick's Substack — practical and thoughtful.</div>
+                        <div class="format-resource-meta">Weekly, 10–15 min read</div>
+                    </a>
+                    <a href="https://www.bensbites.co" class="format-resource" target="_blank">
+                        <div class="format-resource-name">Ben's Bites</div>
+                        <div class="format-resource-desc">Tool roundups and quick hits.</div>
+                        <div class="format-resource-meta">Weekly, 5 min read</div>
+                    </a>
+                    <a href="https://www.elementsofai.com" class="format-resource" target="_blank">
+                        <div class="format-resource-name">Elements of AI</div>
+                        <div class="format-resource-desc">Full interactive course at your own pace.</div>
+                        <div class="format-resource-meta">~4 hours total</div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Format: Try It -->
+            <div class="panel" id="format-try">
+                <h2 class="panel-title">Learn by Doing</h2>
+                <p class="resource-desc" style="margin-bottom: 16px;">Hands-on practice is the fastest way to build skills.</p>
+                <div class="format-list">
+                    <a href="https://chat.openai.com" class="format-resource featured" target="_blank">
+                        <div class="featured-label">Start here</div>
+                        <div class="format-resource-name">ChatGPT</div>
+                        <div class="format-resource-desc">Just start a conversation. Use a prompt below.</div>
+                        <div class="format-resource-meta">Free</div>
+                    </a>
+                    <a href="https://adoption.microsoft.com/en-us/copilot/" class="format-resource" target="_blank">
+                        <div class="format-resource-name">Microsoft Copilot Learning Hub</div>
+                        <div class="format-resource-desc">Practice in your actual Microsoft 365 apps.</div>
+                        <div class="format-resource-meta">Built into Word, Excel, Outlook</div>
+                    </a>
+                    <a href="https://www.uwo.ca/hr/learning/staff/operational.html" class="format-resource" target="_blank">
+                        <div class="format-resource-name">Western Workshop</div>
+                        <div class="format-resource-desc">In-person guided practice with AI tools.</div>
+                        <div class="format-resource-meta">2 hours</div>
+                    </a>
+                </div>
+                <div class="try-box" style="margin-top: 16px;">
+                    <div class="try-box-label">Prompts to try now</div>
+                    <div class="try-box-prompt" style="margin-bottom: 8px;">Summarize this in 3 bullet points: [paste text]</div>
+                    <div class="try-box-prompt" style="margin-bottom: 8px;">Write a professional email declining a meeting politely</div>
+                    <div class="try-box-prompt">What questions should I ask about [topic]?</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const entryBtns = document.querySelectorAll('.entry-btn');
+            const formatPills = document.querySelectorAll('.format-pill');
+            const questionItems = document.querySelectorAll('.question-item');
+            const backBtns = document.querySelectorAll('.back-btn');
+
+            function hideAll() {
+                document.querySelectorAll('.panel, .resource-panel').forEach(p => p.classList.remove('active'));
+                entryBtns.forEach(b => b.classList.remove('active'));
+                formatPills.forEach(p => p.classList.remove('active'));
+            }
+
+            entryBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const goal = this.dataset.goal;
+                    hideAll();
+                    this.classList.add('active');
+                    document.getElementById(`panel-${goal}`).classList.add('active');
+                });
+            });
+
+            formatPills.forEach(pill => {
+                pill.addEventListener('click', function() {
+                    const format = this.dataset.format;
+                    hideAll();
+                    this.classList.add('active');
+                    document.getElementById(`format-${format}`).classList.add('active');
+                });
+            });
+
+            questionItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const question = this.dataset.question;
+                    const resourcePanel = document.getElementById(`resources-${question}`);
+                    if (resourcePanel) {
+                        document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+                        resourcePanel.classList.add('active');
+                    }
+                });
+            });
+
+            backBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const backTo = this.dataset.back;
+                    document.querySelectorAll('.resource-panel').forEach(p => p.classList.remove('active'));
+                    document.getElementById(`panel-${backTo}`).classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
